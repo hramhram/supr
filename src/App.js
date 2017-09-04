@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components'
+
+const Arr = styled.div`
+  width: 100vw;
+  height:100vh;
+  background-color: #30d5c8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const Corgi = styled.button`
+  min-height: 30px;
+  padding: 5px;
+  background-color: orange;
+  color: black;
+`
 
 class App extends Component {
+  handleClick() {
+    alert("I love corgi!!!!")
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Arr>
+        <Corgi onClick={this.handleClick}>super corgi</Corgi>
+      </Arr>
     );
   }
 }
