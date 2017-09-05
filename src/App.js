@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 
-const Arr = styled.div`
+const GenericArr = styled.div`
   width: 100vw;
   height:100vh;
-  background-color: #30d5c8;
   display: flex;
   justify-content: center;
   align-items: center;
+`
+const Arr = styled(GenericArr)`
+  background-color: #30d5c8;
+`
+
+const BackgroundImage = styled(GenericArr)`
+  background-size: cover;
+  background-image: url(${props => props.url});
 `
 
 const Corgi = styled.button`
@@ -18,14 +25,22 @@ const Corgi = styled.button`
 `
 
 class App extends Component {
-  handleClick() {
-    alert("I love corgi!!!!")
+  state = {
+    index: 1
+  }
+
+  handleClick = () => {
+    this.setState(state => ({
+      index: state.index < 10 ? state.index + 1 : 1
+    }))
   }
 
   render() {
     return (
       <Arr>
-        <Corgi onClick={this.handleClick}>super corgi</Corgi>
+        <BackgroundImage url={`/${this.state.index}.jpg`}>
+          <Corgi onClick={this.handleClick}>super corgi</Corgi>
+        </BackgroundImage>
       </Arr>
     );
   }
