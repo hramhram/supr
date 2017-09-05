@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <Arr>
-        <BackgroundImage url={`/${this.state.index}.jpg`}>
+        <BackgroundImage url={`./${this.state.index}.jpg`}>
           <Corgi onClick={this.handleClick}>super corgi</Corgi>
         </BackgroundImage>
       </Arr>
